@@ -541,7 +541,7 @@
 			$('#emailPrivateLink #emailButton').show();
 			$('#allowPublicUploadWrapper').show();
 			$('#linkTextMore').show();
-			$('#linkSocial').show();
+			$('#linkSocial').hide();
 			$('#linkSocial').html('');
 
 			var ul = $('<ul/>');
@@ -1282,5 +1282,18 @@ $(document).ready(function () {
 				window.location.href = url;
 			}
 		}
+	});
+
+	$(document).on('click', '.icon-more', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		var children = event.currentTarget.parentNode.children;
+
+		$.each(children, function (key, value) {
+			if (value.classList.contains('popovermenu')) {
+				$(value).toggle();
+			}
+		});
 	});
 });
